@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const inquirer = require('inquirer');
 
-const { writeFIle } = require('./generate-site.js');
+// const { writeFile } = require('./generate-site.js');
 
 const generatePage = require('./src/page-template.js');
 
