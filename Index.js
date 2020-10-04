@@ -28,6 +28,12 @@ const promptManager = () => {
             type: 'input',
             name: 'office',
             message: 'What is the managers Office Number?'
+        },
+        {
+            type: 'confirm',
+            name: 'confirmAddFirstEmp',
+            message: 'Would you like to add an employee to this team?',
+            default: false
         }
     ]);
 };
@@ -35,6 +41,10 @@ const promptManager = () => {
 const promptEmployee = teamData => {
     if (!teamData.employee) {
         teamData.employee = [];
+    }
+
+    if (!teamData.confirmAddFirstEmp) {
+        return teamData;
     }
 
     console.log(`
@@ -71,7 +81,7 @@ const promptEmployee = teamData => {
         {
             type: 'input',
             name: 'github',
-            message: 'What is the Employees github user name?'
+            message: 'What is the Employees github user name? (github.com/username)'
         },
         {
             type: 'input',
