@@ -22,8 +22,6 @@ const generateTeam = teamArr => {
 module.exports = templateData => {
     // destructure page data by section
     const { mName, mId, mEmail, office, employee } = templateData;
-
-    console.log(templateData);
   
     return `
     <!DOCTYPE html>
@@ -50,7 +48,7 @@ module.exports = templateData => {
                         <h5 class="manager-title">${mName}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
                         <p class="id-text">ID:${mId}</p>
-                        <p class="email-link">Email:<a href="#" class="email-link">${mEmail}</a></p>
+                        <p class="email-link">Email:<a href="mailto:${mEmail}" class="email-link">${mEmail}</a></p>
                         <p class="office-text">Office Number:${office}</p>
                     </div>
                 </div>
