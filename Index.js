@@ -28,15 +28,6 @@ const promptManager = () => {
             type: 'input',
             name: 'office',
             message: 'What is the managers Office Number?'
-        },
-        {
-            type: 'checkbox',
-            name: 'role',
-            message: 'Which type of Employee would you like to add?',
-            choices: [
-                'Engineer',
-                'Intern'
-            ]
         }
     ]);
 };
@@ -53,6 +44,15 @@ const promptEmployee = teamData => {
     =================
     `);
     return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'role',
+            message: 'Which type of Employee would you like to add?',
+            choices: [
+                'Engineer',
+                'Intern'
+            ]
+        },
         {
             type: 'input',
             name: 'name',

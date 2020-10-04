@@ -1,6 +1,29 @@
+const generateTeam = teamArr => {
+    return `
+    ${teamArr
+    .map(({role, name, id, email, github, school}) => {
+        return `
+        <div class="card employee-card">
+        <div class="card-body">
+            <h5 class="card-title">${name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${role}</h6>
+            <p class="id-text">ID:${id}</p>
+            <p class="email-link">Email:<a href="#" class="email-link">${email}</a></p>
+            <p class="github-text">Github:${github}</p>
+            <p class="school-text">School:${school}</p>
+        </div>
+        </div>
+        `
+    })
+    .join('')}
+    `
+}
+
 module.exports = templateData => {
     // destructure page data by section
-    const { manager, employee } = templateData;
+    const { mName, mId, mEmail, office, employee } = templateData;
+
+    console.log(templateData);
   
     return `
     <!DOCTYPE html>
@@ -24,20 +47,17 @@ module.exports = templateData => {
             <div class="col-12">
                 <div class="card manager-card">
                     <div class="card-body">
-                        <h5 class="card-title">${employee.name}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <h5 class="card-title">${mName}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+                        <p class="id-text">ID:${mId}</p>
+                        <p class="email-link">Email:<a href="#" class="email-link">${mEmail}</a></p>
+                        <p class="office-text">Office Number:${office}</p>
                     </div>
-                </div>
-                <div class=" card employee-card">
-    
                 </div>
             </div>
         </div>
-        <div class="employee-card">
-    
+        <div>
+            ${generateTeam(employee)}
         </div>
     </body>
     </html>
